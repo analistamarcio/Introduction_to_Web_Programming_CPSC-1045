@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title> Assignment 3 </title>
+  <script src="a3.js" defer></script>
+  <style>
+    div {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Assignment 3</h1>
+
+  <h2>Question 1</h2>
+  <div>Enter a year leter than 1582 and we will tell you if it is leap year</div>
+  <div>
+    Enter your year:
+    <input type="text" name="leapYear" id="leapYear">
+    <button onclick="checkLeapYear()">Check Year</button>
+  </div>
+  <div id="div1">Leap year output will appear here</div>
+
+  <h2>Question 2</h2>
+  <div>
+    Enter a sentence:
+    <input type="text" name="sentence" id="sentence">
+  </div>
+  <div>
+    Enter a letter:
+    <input type="text" name="letter" id="letter" maxlength="1">
+  </div>
+  <div>
+    <button onclick="countLetter()">Press to count</button>
+  </div>
+  <div id="div2">Output will appear here</div>
+
+  <h2>Question 3</h2>
+  <div>
+    <button onclick="average()">Press to enter some numbers</button>
+  </div>
+  <div id="div3">The average of the numbers you enter will appear here</div>
+
+  <h2>Question 4</h2>
+  <div>Enter the number of rows that should appear in the pattern:</div>
+  <div>
+    <input type="text" name="rows" id="rows">
+    <button onclick="displayPattern()">Press to display pattern</button>
+  </div>
+  <div id="div4">We will display the pattern here</div>
+
+</body>
+
+</html>
