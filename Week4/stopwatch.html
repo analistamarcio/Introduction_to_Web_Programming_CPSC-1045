@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Timer</title>
+   </head>
+   <body >
+    <h1>A Simple Stopwatch</h1>
+	<h3><span id="output">0</span>ms</h3>
+	<input type="button" value="Start" id="start">
+	<input type="button" value="Pause" id="pause">
+	<input type="button" value="Reset" id="reset">
+
+<script>
+let time = 0;
+let timeDisplay = document.getElementById("output");
+document.getElementById("start").onclick = start;
+document.getElementById("pause").onclick = pause;
+document.getElementById("reset").onclick = reset;
+let timer = null;
+
+function myTimer(){
+	time = (time + 1);
+	timeDisplay.innerHTML = time;
+}
+function pause(){
+	if(timer != null){
+		clearInterval(timer);
+		timer = null;
+	}
+}
+function reset(){
+	pause();
+	time = 0;
+	timeDisplay.innerHTML = time;
+}
+function start(){
+	if(timer == null){
+		timer = setInterval(myTimer, 1);
+	}
+}
+</script>
+</body>
+</html>

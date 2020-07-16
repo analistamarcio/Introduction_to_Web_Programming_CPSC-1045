@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title> Lab 4 </title>
+  <style>
+    * {
+      margin: 3px;
+      padding: 6px 0;
+    }
+
+    button {
+      padding: 4px;
+    }
+
+    body {
+      background-color: linen;
+    }
+
+    h1 {
+      color: chocolate;
+    }
+
+    h2 {
+      color: chocolate;
+    }
+  </style>
+  <script src="lab4.js" defer></script>
+</head>
+
+<body>
+  <h1>Assignment 4</h1>
+  <h2>Question 1</h2>
+  <p>Welcome to the CPSC 1045 Lottery Application!</p>
+  <div>
+    Click this button to generate a random 2 digit number!
+    <button onClick="generateRandomNumber()">Generate Number</button>
+  </div>
+  <div>
+    Enter your 2 digit guess!
+    <input type="text" name="myGuess" id="myGuess" maxlength="2">
+    <button onClick="checkMyNumbers()">Check My Numbers</button>
+  </div>
+  <div id="result"><br></div>
+  <h2>Question 2</h2>
+  <img id="rotativeImage" src="tanooki.png" alt="tanooki">
+  <br>
+  <button onClick="startSlideshow()">Start Slideshow</button>
+  <button onClick="stopSlideshow()">Stop Slideshow</button>
+</body>
+
+</html>
