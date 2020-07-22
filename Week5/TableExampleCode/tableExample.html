@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<TITLE>HTML TABLES</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		table, td, th { border: 1px solid black }
+		table{border-collapse: collapse}
+	</style>
+</head>
+<body>
+
+
+	<table id="tbl1">
+		<tr>
+			<th>Month</th>
+			<th>Savings</th>
+		</tr>
+		
+		<tr>
+			<td>January</td>
+			<td>100.00</td>
+		</tr>
+
+		<tr>
+			<td>February</td>
+			<td>75.00</td>
+		</tr>	
+
+		<tr>
+			<td>Total</td>
+			<td>175.00</td>
+		</tr>
+	</table>	
+	<br><br>
+	<table id="tb2">
+		<tr>
+			<td>1</td>
+			<td>A</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>B</td>
+		</tr>		
+	</table>
+	<br><br>
+</body>
+<script>
+let t = document.getElementById("tbl1");
+for(let i = 0; i < t.rows.length; i++){
+	if(i % 2 == 0)
+		t.rows.item(i).style.backgroundColor = "lightgray";
+}
+
+/*Basic Table*/
+let newT = document.createElement("table");
+
+let firstRow = newT.insertRow(0);
+
+
+let newCell = firstRow.insertCell(0);
+let newText = document.createTextNode('New first cell');
+newCell.appendChild(newText);
+
+newCell = firstRow.insertCell(1);
+newText = document.createTextNode('Second cell');
+newCell.appendChild(newText);
+
+let lastRow = newT.insertRow(-1);
+newCell = lastRow.insertCell(0);
+newText = document.createTextNode('first cell row 2');
+newCell.appendChild(newText);
+
+document.body.appendChild(newT);
+
+/*TH Example*/
+let t2 = document.querySelector("#tb2");
+let first = t2.insertRow(0);
+
+let th1 = document.createElement("th");
+let txt1 = document.createTextNode('Question');
+th1.appendChild(txt1);
+first.appendChild(th1);
+
+th1 = document.createElement("th");
+txt1 = document.createTextNode('Answer');
+th1.appendChild(txt1);
+first.appendChild(th1);
+
+</script>
+
+</html>

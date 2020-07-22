@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<TITLE>HTML TABLES</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		table, td, th { border: 1px solid black }
+		table{border-collapse: collapse}
+	</style>
+</head>
+<body>
+	<table id="tb">
+			
+	</table>
+	<br><br>
+</body>
+<script>
+
+
+	let tb = document.querySelector("#tb");
+
+	for(let row = 0; row < 3; row++){
+		let currentRow = tb.insertRow(row);
+		for(let cell = 0; cell < 4; cell++){
+			let currentCell = currentRow.insertCell(cell);
+			let val = (row + 1) * (cell + 1);
+			currentCell.appendChild(document.createTextNode(val));
+		}
+	}
+	document.body.appendChild(tb);
+</script>
+
+</html>
