@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Assignment 5 </title>
+  <style type="text/css">
+    table,
+    td,
+    th {
+      border: 1px solid black;
+      padding: 2px 5px;
+    }
+
+    th {
+      min-width: 100px;
+      text-align: center;
+      background-color: lightgray;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    fieldset {
+      width: 400px;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>CPSC 1045 Baby Data System</h1>
+
+  <form>
+    <fieldset id="myForm">
+      <legend>Enter Child Information</legend>
+      <br>
+      <label for="name">Name </label>
+      <input type="text" name="name" id="name">
+      <br><br>
+      <label for="gender">Sex </label>
+      <select name="gender" id="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <br><br>
+      <input onClick="addBaby()" type="button" value="Add Baby">
+      <input onClick="removeBaby()" type="button" value="Remove Baby">
+      <input onClick="emptyList()" type="button" value="Empty List">
+      <br><br>
+      <div id="childList">Child List</div>
+      <br>
+    </fieldset>
+  </form>
+  <input onClick="countBySex()" type="button" value="Count By Sex">
+  <br><br>
+  <h3 id="result">Boys: 0 Girls: 0</h3>
+
+  <script>
+    let childList = new Array(2);
+    childList[0] = [];
+    childList[1] = [];
+
+    function addBaby() {
+      let name = document.getElementById("name").value;
+      let gender = document.getElementById("gender").value;
+
+      // check if user entered a valid name
+      if (name === "" || !isNaN(name)) {
+        return alert("Invalid name.");
+      }
+
+      // add name and gender to array
+      if (childList[0].indexOf(name) < 0) {
+        childList[0].push(name);
+        childList[1].push(gender);
+
+        // update the table
+        updateTable(1);
+      }
+    }
+
+    function removeBaby() {
+      if (childList[0].length === 0) {
+        return alert("The table is empty.");
+      }
+
+      let name = document.getElementById("name").value;
+
+      // remove name and gender from array
+      childList[0].pop();
+      childList[1].pop();
+
+      // update the table
+      if (childList[0].length > 0) {
+        updateTable(0); // remove the last row
+      } else {
+        updateTable(-1); // the same as "Empty List"
+      }
+    }
+
+    function emptyList() {
+      if (childList[0].length > 0) {
+        childList[0] = [];
+        childList[1] = [];
+
+        // update the table
+        updateTable(-1);
+      } else {
+        alert("The table is empty.");
+      }
+
+    }
+
+    function updateTable(task) {
+      // create a table and insert it on form
+      function createTable() {
+        // create a table with id = "childTable"
+        let newTable = document.createElement("table");
+        newTable.id = "childTable";
+        document.getElementById("myForm").appendChild(newTable);
+
+        // create the table element <thead>
+        let myTable = document.getElementById("childTable");
+        let header = myTable.createTHead();
+        let row = header.insertRow();
+
+        // Create the Name header
+        let newCell = document.createElement("th");
+        let newText = document.createTextNode('Name');
+        newCell.appendChild(newText);
+        row.appendChild(newCell);
+
+        // Create the Sex header
+        newCell = document.createElement("th");
+        newText = document.createTextNode('Sex');
+        newCell.appendChild(newText);
+        row.appendChild(newCell);
+
+        // create the table element <tbody>
+        myTable.createTBody();
+      }
+
+      // add a new row on the table
+      function addRowOnTable() {
+        let myTable = document.getElementById("childTable");
+        let tBody = myTable.getElementsByTagName("tbody").item(0);
+
+        // Create an empty <tr> element and add it to the last position of <tbody>
+        let row = tBody.insertRow();
+
+        // sets the <tr> background color according gender
+        let gender = childList[1][childList[1].length - 1];
+
+        if (gender === "Male") {
+          row.style.backgroundColor = "powderblue";
+        } else {
+          row.style.backgroundColor = "pink";
+        }
+
+        // Create a <td> element with the Name
+        let newCell = row.insertCell(0);
+        let newText = document.createTextNode(childList[0][childList[0].length - 1]);
+        newCell.appendChild(newText);
+
+        // Create a <td> element with the gender
+        newCell = row.insertCell(1);
+        newText = document.createTextNode(gender);
+        newCell.appendChild(newText);
+      }
+
+      // remove last baby from the table
+      function removeRow() {
+        let myTable = document.getElementById("childTable");
+        myTable.deleteRow(myTable.rows.length - 1);
+      }
+
+      // delete the table (empty list)
+      function deleteTable() {
+        let myTable = document.getElementById("childTable");
+        if (myTable !== null) {
+          myTable.remove();
+        }
+      }
+
+      if (task === 1) {
+        // add baby
+        if (childList[0].length === 1) {
+          createTable(); // create the table before add baby when it is the first name
+        }
+        addRowOnTable();
+      } else if (task === 0) {
+        // remove baby
+        removeRow();
+      } else {
+        // empty table
+        deleteTable();
+      }
+    }
+
+    function countBySex() {
+      if (childList[0].length === 0) {
+        alert("Please, populate the table.");
+      } else {
+        let countMale = 0, countFemale = 0;
+
+        for (let i = 0; i < childList[0].length; i++) {
+          childList[1][i] === "Male" ? countMale++ : countFemale++;
+        }
+
+        document.getElementById("result").innerHTML = "Boys: " + countMale + " Girls: " + countFemale;
+      }
+    }
+  </script>
+</body>
+
+</html>
