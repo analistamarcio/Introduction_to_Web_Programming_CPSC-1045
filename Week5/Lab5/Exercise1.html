@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Exercise 1 </title>
+</head>
+
+<body>
+  <h1>Exercise Arrays</h1>
+  <label for="color">Enter any color to put in the array </label>
+  <input type="text" name="color" id="color">
+  <input onclick="addColor()" type="button" value="Add to Array">
+  <br><br>
+  <h3>Your array contents are:</h3>
+  <div id="myArray"></div>
+  <h3>Check if a color exists in the array:</h3>
+  <input type="text" name="checkColor" id="checkColor">
+  <input onclick="checkColor()" type="button" value="Check Color">
+  <br><br>
+  <div id="showIndex">That color is at index:</div>
+
+  <script>
+    let myColors = [];
+
+    function addColor() {
+      let newColor = document.getElementById("color").value;
+      myColors.push(newColor);
+      updateList();
+      changeBgColor(newColor);
+    }
+
+    function updateList() {
+      document.getElementById("myArray").innerHTML = myColors;
+    }
+
+    function checkColor() {
+      let colorCheck = document.getElementById("checkColor").value;
+      document.getElementById("showIndex").innerHTML = "That color is at index: " + myColors.indexOf(colorCheck);
+      changeBgColor(colorCheck);
+    }
+
+    function changeBgColor(bgColor) {
+      document.body.style.backgroundColor = bgColor;
+    }
+  </script>
+</body>
+
+</html>

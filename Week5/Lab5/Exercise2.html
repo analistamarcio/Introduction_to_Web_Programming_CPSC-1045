@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Exercise 2 </title>
+</head>
+
+<body>
+  <p id="animals"></p>
+  <script>
+    let cats = ["Calico", "Siamese"];
+    let dogs = ["Boston", "Bulldog", "Poodle"];
+    // add code on the line below
+    let pets = cats.concat(dogs);
+    document.getElementById("animals").innerHTML = pets;
+
+    let arr = [20, 30];
+    for (let i = arr.length; i < 5; i += 1) {
+      arr[i] = Math.pow(i, 2);
+    }
+
+    // let arr2 = [10, 20, 30, 40, 50, 60, 70, 90];
+    // let sum = 0;
+    // for (let i = 1; i < 7; i += 1) {
+    //   sum = sum + arr2[i];
+    // }
+    let arr2 = [10, 20, 30, 40, 50, 60, 70, 90];
+    let sum = 0;
+    for (let i = 0; i < arr2.length; i += 1) {
+      sum = sum + arr2[i];
+    }
+
+    function swap(myArray) {
+      let temp, j = myArray.length - 1;
+      for (let i = 0; i < myArray.length / 2; i++) {
+        temp = myArray[i];
+        myArray[i] = myArray[j - i];
+        myArray[j - i] = temp;
+      }
+      return myArray;
+    }
+  </script>
+</body>
+
+</html>
