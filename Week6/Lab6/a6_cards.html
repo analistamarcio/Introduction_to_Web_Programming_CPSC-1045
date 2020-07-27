@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Assignment 6 - Cards </title>
+  <script src="a6_cards.js" defer></script>
+  <style>
+    fieldset {
+      width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="result">Guess the Card</h1>
+  <input onclick="drawCard()" type="button" value="Draw Card">
+  <input onclick="checkGuess()" type="button" value="Check Guess">
+  <br><br>
+  <fieldset>
+    <legend>Pick a Card and Suit</legend>
+    <select name="card" id="card">
+      <option value="1">Ace</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4">Four</option>
+      <option value="5">Five</option>
+      <option value="6">Six</option>
+      <option value="7">Seven</option>
+      <option value="8">Eight</option>
+      <option value="9">Nine</option>
+      <option value="10">Ten</option>
+      <option value="11">Jack</option>
+      <option value="12">Queen</option>
+      <option value="13">King</option>
+    </select>
+    <select name="suit" id="suit">
+      <option value="Club">Club</option>
+      <option value="Diamond">Diamond</option>
+      <option value="Heart">Heart</option>
+      <option value="Spade">Spade</option>
+    </select>
+  </fieldset>
+</body>
+
+</html>
