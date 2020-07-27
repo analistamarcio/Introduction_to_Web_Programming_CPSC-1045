@@ -17,12 +17,6 @@ function addColor() {
   newItem.appendChild(newColorName);
   let unorderedList = document.getElementById("colorList");
   unorderedList.appendChild(newItem);
-
-  // clear bg color to starts from a new li item when timer restarts
-  if (listItem !== undefined) {
-    document.getElementById(listItem).style.backgroundColor = "";
-    listItem = undefined;
-  }
 }
 
 // starts the timer

@@ -1,5 +1,5 @@
 // global card object
-let card = {};
+let card = new Cards();
 
 // Card constructor
 function Cards(theSuit, theValue) {
