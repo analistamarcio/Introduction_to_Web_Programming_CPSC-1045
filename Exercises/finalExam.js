@@ -94,3 +94,64 @@
 //   }
 //   return arr;
 // }
+
+function buckets(input, bound) {
+  let sums = [0, 0];
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] < bound)
+      sums[0] += input[i];
+    else sums[1] += input[i];
+  }
+  return sums;
+}
+
+function Flag(country, width, height, colors) {
+  this.country = country;
+  this.width = width;
+  this.height = height;
+  this.colors = colors.slice();
+}
+
+function extract(line, word1, word2) {
+  let index = [];
+
+  index.push(line.indexOf(word1));
+  index.push(line.indexOf(word2));
+  console.log(index);
+  if (index[0] < index[1]) {
+    return line.substring(index[0], index[1]);
+  } else {
+    return false
+  }
+}
+
+let str = "It does not do to dwell on dreams and forget to live";
+
+
+function thing(a, b) {
+  if (typeof (a) != "number" && typeof (b) != "number") {
+    return false;
+  }
+
+  let temp = a * b;
+  let result;
+
+  if (a > b) {
+    result = temp;
+  } else {
+    result = temp + "";
+  }
+  return result;
+}
+
+function checker(str, ltr) {
+  if (typeof (str) == "string" && typeof (ltr) == "string") {
+    let current = 0;
+    while (current < str.length) {
+      if (str.charAt(current) == ltr)
+        return true;
+      current++;
+    }
+    return false;
+  }
+}
